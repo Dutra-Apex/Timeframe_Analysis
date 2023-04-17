@@ -32,7 +32,7 @@ def get_lower_data_frequency(datapath, timeframe, aggregated_keys, date_column, 
     elif timeframe == 'day':
         timeframe == '%Y-%m-%d'
 
-    groupkey = pd.to_datetime(data[date_column].dt.strftime(timeframe))
+    groupkey = pd.to_datetime(data[date_column].dt.strftime(timekey))
     new_data = data.groupby(groupkey).agg(aggregated_keys)
 
     if save_path:
