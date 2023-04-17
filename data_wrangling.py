@@ -83,56 +83,6 @@ def x_y_split(x_range, y_range, data, daily_data, timeframe, datetime, column, m
 
   return x, y
 
-
-# def x_y_split(x_range, y_range, data, daily_data, timeframe, datetime, column, market_hours=False):
-  
-#   if timeframe == 'day':
-#     x_len = x_range
-#   elif timeframe == 'hour':
-#     if market_hours:
-#       x_len = 8 * x_range
-#     else:
-#       x_len = 24 * x_range
-#   elif timeframe == 'minute':
-#     if market_hours:
-#       x_len = 60 * 8 * x_range
-#     else:
-#       x_len = 60 * 24 * x_range
-  
-#   x = np.zeros((len(data)-1-x_len, x_len))
-#   y = np.zeros((len(data)-1-x_len, y_range))
-#   y_date = pd.to_datetime(data[datetime][x_len])
-#   for i in range(0, len(data)-x_len-1):
-#     temp_x, temp_y = [], []
-
-#     # for j in range(x_len):
-#     #   temp_x.append(data[column][i+j])
-#     temp_x = data[column][i:i+x_len]
-#     y_date = pd.to_datetime(data[datetime][i+x_len])
-    
-#     while len(temp_y) < y_range:
-#       temp = daily_data[daily_data[datetime] == y_date.strftime("%Y-%m-%d")][column]
-#       temp = np.array(temp)
-#       if len(temp) != 0:
-#         temp_y.append(temp[0])
-#       if y_date < pd.to_datetime(daily_data[datetime][len(daily_data)-1]):
-#         y_date += pd.Timedelta(days=1)
-#       else:
-#         if len(temp_y) < y_range:
-#           temp_y.append(daily_data[column][len(daily_data)-1])
-
-
-#     # print(temp_x)
-#     # print(temp_y)
-#     # x.append(np.array(temp_x))
-#     # y.append(np.array(temp_y))
-#     x[i] += temp_x
-#     y[i] += temp_y
-
-#   return x, y
-
-
-
 # Given an x and y set, scales the data between a and b
 # Return the scaled x and y, as well as their maximun and minum values (used for rescaling)
 def scale_data(x, y, a, b):
@@ -158,4 +108,3 @@ def get_predictions_from_sliding_window(data, predictions_slided, y_range):
     y = np.array(y)
     predictions = np.array(predictions)
     return y.flatten(), predictions.flatten()
-
