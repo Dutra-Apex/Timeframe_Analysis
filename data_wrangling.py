@@ -108,3 +108,4 @@ def get_predictions_from_sliding_window(data, predictions_slided, y_range):
     y = np.array(y)
     predictions = np.array(predictions)
     return y.flatten(), predictions.flatten()
+
