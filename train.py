@@ -69,8 +69,7 @@ def train_model(args):
 
     y = dw.reverse_scale(y, max_test, min_test)
     predictions = dw.reverse_scale(predictions, max_test, min_test)
-    er.plot_preds(y, predictions, args.timeframe, args.values_column, args.results_path)
-
+    # er.plot_preds(y, predictions, args.timeframe, args.values_column, args.results_path)
 
 
 if __name__ == '__main__':
